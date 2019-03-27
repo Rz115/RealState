@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar  text-center color="primary">
+      <ion-title>Políticas de Privacidad</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class="fondo1">
+      <!--metodo para traer en un card los datos de politicas-->
+    <ion-list [virtualScroll]="politicas" [approxItemHeight]=" '100px'">
+          <ion-item *virtualItem="let cat" no-lines class="itemscolor">
+            <!--asignamos un diseño al card-->
+              <ion-card id ="logo" class="z-depth-4">
+                <!--cargamos el titulo de las politicas, se da un espacio de parrafo y 
+                se cargan las politicas de privacidad -->
+                  <ion-card-content text-wrap align="justify">
+                      <ion-card-title>
+                        {{cat.nombre_politica}}
+                        </ion-card-title>
+                      <p class="sp">
+                        {{cat.texto}}
+                  
+                      </p>
+                    </ion-card-content>
+            </ion-card>
+          </ion-item>
+        </ion-list>
+  </ion-content>

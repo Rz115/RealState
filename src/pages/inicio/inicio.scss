@@ -1,0 +1,87 @@
+page-inicio {
+    .avatar{
+        height: 240px;
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        
+        }
+        .position{
+            display: flex;
+            justify-content: center;
+        
+        } 
+        .txt {
+    
+            width: 100%;
+            text-align: justify;
+            font-size: 22px!important;
+            font-family: 'Courgette';
+            src: url('../assets/fonts/courgette.woff2');
+
+             
+       }
+
+      .tamano{
+          height: 50%;
+      }
+      #map{
+        height: 20%;
+        width: absolute;
+        border-radius: 10px;
+    }
+
+    .img1{
+        height: 80px;
+        width: absolute;
+        border-radius: 10px;
+    }
+
+
+
+    .card-background-page {
+
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+      
+        .card-title {
+          position: absolute;
+          top: 36%;
+          font-size: 2.0em;
+          width: 100%;
+          font-weight: bold;
+          color: #fff;
+        }
+      
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: #fff;
+        }
+      
+      }
+      ion-slides.swiper-slide{
+        left: 25%;
+        
+        }
+    .thumb-img{
+        padding: 2px;
+        height: 50%;
+        width: 100%;
+        
+    }
+    .image-slider{
+        height: 40%;
+        width: absolute;
+        
+       
+    }
+
+
+
+      }
+

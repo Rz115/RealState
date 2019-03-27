@@ -1,0 +1,38 @@
+<ion-header>
+
+    <ion-navbar text-center  color="primary">
+      <ion-title>Detalles</ion-title>
+    </ion-navbar>
+
+  </ion-header>
+
+
+  <ion-content padding scrollY="true" class="fondo1">
+<!--se creo un card en donde manda a llamar los datos de la inmobiliaria seleccionada -->
+    <ion-card class="z-depth-4">
+      <!--Traemos la imagen de la inmobiliaria-->
+        <img [src]="imagen">
+          <br>
+          <!--traemos junto con un item el nombre de la inmobiliaria y la direccion-->
+        <ion-item text-wrap>
+          <ion-icon name="contact" item-start large></ion-icon>
+          <p class="spd">{{title}}</p>
+          <p class="sp">{{direccion}}</p>
+        </ion-item>
+      <!--en otro item traemos un icono de contacto y traemos el numero de telefono de la 
+      inmobiliaria-->
+        <ion-item text-wrap>
+          <ion-icon name="call" item-left large ></ion-icon>
+          <p class="spd">Contáctenos</p>
+          <p class="sp">{{telefono}}</p>
+        </ion-item>
+      <br>
+      <!--finalmente traemos comentarios o frases de la inmobiliaria junto con la descripcion
+      que ésta desee colocar-->
+      <p align="justify">{{frase}}</p>    
+       <br> <p align="justify">{{detalles}}</p>
+      </ion-card>
+    
+           
+  </ion-content>
+  

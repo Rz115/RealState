@@ -1,0 +1,87 @@
+<ion-header>
+  
+    <ion-navbar color="primary"><!--traemos dentro de la variable recipe el nombre de
+      la propiedad anteriormente seleccionada-->
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>{{recipe.nombre_propiedad}}</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+
+  <!--datos de propiedad en venta-->
+  <ion-content padding class="fondo1" >
+  <!--en el siguiente metodo creamos el carrusel para visualizar 7 imagenes de la propiedad
+en venta que se haya seleccionado, slides es para crear la forma del carrusel el cual
+nos indica que sera ciclado y se visualizan 2 imagenes en pantalla, el elemento ion slide
+permite crear el ciclo dentro del carrusel trayendo las imagenes dentro de un vector y
+ciclandolas para posteriormente en el elemento img cargue el ciclo anteriormente creado
+y dentro de este elemento lleva un evento llamado presentImage el cual se crea para poder
+tocar la imagen y visualizarla en pantalla completa-->
+   <ion-slides pager class="image-slider" autoplay="2000" loop="true"  speed="1000" slidesPerView="2">
+      <ion-slide *ngFor="let img of [recipe.imagen01,recipe.imagen02,recipe.imagen03,recipe.imagen04,
+      recipe.imagen05,recipe.imagen06,recipe.imagen07]">
+      <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)" >
+    </ion-slide>
+  </ion-slides> 
+
+   <!--En el siguiente card contiene todos los datos acerca de la propiedad y dentro de la
+variable recipe los va trayendo de a cuerdo al que se solicite, primero el de precio, se
+ajusta con un espacio y luego traemos direccion, hacemos un espacio y traemos la descripcion
+para posteriormente traer los complementos o caracteristicas extras que la propiedad puede
+poseeer y finalmente traemos el contacto de la inmobiliaria y una breve descripcion -->
+   <ion-card  class="z-depth-4">
+       <ion-card-title align="justify" > 
+          {{recipe.precio}}
+        </ion-card-title>
+        <p align="justify">
+          {{recipe.direccion_propiedad}}
+        </p>
+        <br>
+        <p align="justify" >
+         {{recipe.descripcion}} </p>
+          <p>Cuenta con los siguientes complementos:</p><br>
+          <ion-item >
+          <ion-icon name="checkmark-circle" item-start large></ion-icon>
+          <p text-wrap class="spd">{{recipe.complemento1}}</p>
+          <p text-wrap class="sp">{{recipe.extra_complemento1}}</p>
+        </ion-item>
+        <ion-item >
+          <ion-icon name="checkmark-circle" item-start large></ion-icon>
+          <p text-wrap class="spd">{{recipe.complemento2}}</p>
+          <p text-wrap class="sp">{{recipe.extra_complemento2}}</p>
+        </ion-item>
+        <ion-item >
+          <ion-icon name="checkmark-circle" item-start large></ion-icon>
+          <p text-wrap class="spd">{{recipe.complemento3}}</p>
+          <p text-wrap class="sp">{{recipe.extra_complemento3}}</p>
+        </ion-item>
+        <ion-item >
+          <ion-icon name="checkmark-circle" item-start large></ion-icon>
+          <p text-wrap class="spd">{{recipe.complemento4}}</p>
+          <p text-wrap class="sp">{{recipe.extra_complemento4}}</p>
+        </ion-item>
+        <ion-item >
+          <ion-icon name="checkmark-circle" item-left large ></ion-icon>
+          <p text-wrap  class="spd">{{recipe.complemento5}}</p>
+          <p text-wrap class="sp">{{recipe.extra_complemento5}}</p>
+        </ion-item>
+        <br>
+        
+      <ion-icon name="call" item-left padding >  </ion-icon>
+          {{recipe.telefono}} <br>
+        <p  text-wrap align="justify" > {{recipe.extra_detalles}}</p>
+     <p  text-wrap align="justify" >Puedes mirar su ubicación en el mapa en la parte de aquí 
+       abajo:</p>
+    
+    </ion-card>
+    
+    <!--En esta seccion se muestra dentro de un card el mapa de la ubicacion de la propiedad
+  seleccionada-->
+        <ion-card #map id="map">   
+          
+             </ion-card>
+       
+  </ion-content>
+  

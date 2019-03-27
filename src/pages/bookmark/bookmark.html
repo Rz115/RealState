@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <!--boton del meno para visualizar favoritos-->
+    <button ion-button menuToggle  item-start>
+        <ion-icon name="menu"  ></ion-icon>
+      </button>
+      <ion-title>Propiedades Favoritas</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content >
+    <!--se crea una lista que sera del tamaño de las propiedades que tenga la residencia anterior
+      mente seleccionada, se crea un metodo y a través de él traemos los campos que queremos
+    que se traigan en la pagina como la imagen, precio, direccion y estado de propiedad-->
+  <ion-list [virtualScroll]="recipes">
+  <ion-item *virtualItem="let recipe; let i = index" (click)="showRecipe(i)" no-lines>
+   <ion-card  class="cards-bg">
+   <img [src]="recipe.imagen01"/>
+  <ion-card-content>
+  <ion-card-title class="txt">
+   {{recipe.precio}}
+   </ion-card-title>
+   <div text-wrap text-justify class="sp">
+       {{recipe.direccion_propiedad}} 
+   </div> 
+  </ion-card-content>
+    <ion-row no-padding>
+     <ion-col text-left>
+     <button ion-button clear small color="danger" icon-start>
+     <ion-icon name='star'></ion-icon>
+      {{recipe.estado}}
+     </button>
+      </ion-col>
+       </ion-row>
+      </ion-card >
+      </ion-item>
+      </ion-list>
+  
+  </ion-content>
+  

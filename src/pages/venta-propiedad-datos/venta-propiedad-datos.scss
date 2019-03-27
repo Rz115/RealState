@@ -1,0 +1,58 @@
+page-venta-propiedad-datos {
+    ion-slides.swiper-slide{
+        left: 25%;
+
+        }
+
+        .thumb-img{
+        padding: 2px;
+        height: 50%;
+        width: 100%;
+        
+    }
+    .image-slider{
+        height: 35%;
+        width: absolute;
+    }
+
+    ion-slides {
+        height: 50%;
+    }
+
+    #map{
+        height: 50%;
+        width: absolute;
+        box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+    }
+
+//precio 
+ion-card-title{
+    text-align: wrap;
+    font-size: 24px!important;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+//extra de complementos
+.sp{
+    text-align: justify;
+    font-size: 14px!important;
+    
+} 
+//texto y descripcion 
+p{
+   
+    font-size: 16px!important;
+  
+} 
+
+//complementos
+.spd{
+    text-align: wrap;
+    font-size: 16px!important;
+    color: black
+} 
+
+
+}

@@ -1,0 +1,56 @@
+
+<ion-header>
+  <ion-navbar text-center color="primary">
+    <ion-title>Busca propiedad en Venta</ion-title>
+  
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="fondo1">
+    <ion-list-header text-wrap >
+        Selecciona qué tipo de propiedad en Venta deseas consultar:
+      </ion-list-header>
+    <ion-searchbar  placeholder=" (casa, departamento, terreno, etc)"
+    (ionInput)="searchRecipes($event)" 
+    hideCancelButton></ion-searchbar>
+        
+<!--se crea una lista que sera del tamaño de las propiedades que tenga la residencia anterior
+    mente seleccionada, se crea un metodo y a través de él traemos los campos que queremos
+ que se traigan en la pagina como la imagen, precio, direccion y estado de propiedad-->
+
+    <ion-list [virtualScroll]="recipes" >
+ <ion-item *virtualItem="let recipe; let i = index" (click)="showRecipe(i)" no-lines class="itemscolor" >
+    <ion-card  class="cards-bg" class="z-depth-4">
+     <!--traemos la primera de las imagenes de cada una de las propiedades que
+            halla en venta-->
+ <img [src]="recipe.imagen01"/> 
+ <!--dentro del mismo card pero seguido de la imagen creamos un content en el cual cargamos
+   el precio de la propiedad, la direccion de ésta-->
+ <ion-card-content>
+ <ion-card-title text-wrap class="txt">
+    {{recipe.precio}}
+ </ion-card-title>
+ <div text-wrap text-justify class="sp">
+       {{recipe.direccion_propiedad}} 
+ </div> 
+ </ion-card-content>
+ <!--se creó despues del contenido del card una fila debajo en donde se carga el estado 
+        en el que se encuentra la propiedad, ya sea si esta disponible o ya se ha rentado-->
+ <ion-row no-padding>
+ <ion-col text-left>
+ <button script ion-button clear small color="secondary" icon-start>
+ <ion-icon name='star'></ion-icon>
+    {{recipe.estado}}
+  </button>
+  </ion-col>
+  </ion-row>
+  </ion-card>
+  <!--aqui terminan la lista de elementos virtual-->
+   </ion-item>
+  </ion-list>
+ 
+  
+
+
+</ion-content>

@@ -1,0 +1,82 @@
+<ion-header>
+
+  <ion-navbar text-center color="primary">
+    <!--boton del menu para visualizar favoritos-->
+    <button ion-button menuToggle  item-start>
+          <ion-icon name="menu"  ></ion-icon>
+        </button>
+    <ion-title>Inmobiliaria LzC</ion-title>
+    <!--En el siguiente boton arriba a la derecha cree un evento para desplegar un menu
+    el cual lleva  a 3 paginas distintas como politicas, anuncios o desarrollador-->
+   <!-- <ion-buttons end>
+        <button ion-button icon-only ng-click="popover.hide()" (click)="presentPopover($event)" >
+          <ion-icon name="more"></ion-icon>
+        </button> 
+      </ion-buttons>-->
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="cards-bg" scrollY="true" class="fondo1" >   
+ 
+    <ion-slides pager class="image-slider" autoplay="2000" loop="true"  speed="1000" slidesPerView="2">
+        <ion-slide *ngFor="let img of images">
+        <img src="{{img}}" class="thumb-img" #myImage (click)="presentImage(myImage)" >
+      </ion-slide>
+    </ion-slides> 
+
+ 
+  <!--En el siguiente metodo se crea una lista con los resultados de la consulta de la tabla
+ inmobiliarias y se crea acorde a los datos que dicha tabla tenga-->
+  <ion-list [virtualScroll]="categorys" [approxItemHeight]=" '100px'" no-lines >
+       <ion-item *virtualItem="let cat" no-lines  class="itemscolor">
+  <ion-card  class="z-depth-4">
+  <img [src]="cat.imagen"/>
+    <ion-card-content>
+      <ion-card-title text-wrap class="txt">
+        {{cat.nombre}}
+      </ion-card-title>
+    <!--  <p> {{cat.direccion}} -->
+          </ion-card-content>
+         
+<!--En el siguiente boton utilizamos el metodo para traer la consulta de los siguientes
+elementos los cuales son utilizados en la paginna datos inmobiliaria-->
+    <ion-row no-padding>
+        <ion-col >
+            <button ion-button (click)="showRecipes(cat.id, cat.nombre, cat.imagen, 
+            cat.direccion, cat.telefono, cat.frase, cat.detalles)" 
+            clear small color="secondary" icon-start>
+              <ion-icon name='arrow-dropright-circle'></ion-icon>
+              Detalles de Inmobiliaria
+            </button>
+          </ion-col>
+        </ion-row>
+ <!--En el siguiente boton utilizamos el metodo para traer como consulta las propiedades
+ que tiene la inmobiliaria en venta-->
+ <ion-row no-padding>
+    <ion-col >
+            <button ion-button (click)="Venta(cat.id, cat.imagen)" 
+            clear small color="secondary" icon-start>
+              <ion-icon name='arrow-dropright-circle'></ion-icon>
+              Propiedades en Venta
+            </button>
+          </ion-col>
+        </ion-row>
+ <!--En el siguiente boton utilizamos el metodo para traer como consulta las propiedades
+ que tiene la inmobiliaria en renta-->
+ <ion-row no-padding>    
+ <ion-col >
+        <button ion-button ion-button (click)="Renta(cat.id)" 
+        clear small color="secondary" icon-start>
+          <ion-icon name='arrow-dropright-circle'></ion-icon>
+          Propiedades en Renta
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-item>
+</ion-list>
+
+</ion-content>
+

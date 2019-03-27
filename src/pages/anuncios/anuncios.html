@@ -1,0 +1,29 @@
+
+<ion-header>
+
+    <ion-navbar text-center color="primary">
+      <ion-title >Anunciantes</ion-title>
+       <!--boton del menu para visualizar favoritos-->
+    <button ion-button menuToggle  item-start>
+        <ion-icon name="menu"  ></ion-icon>
+      </button>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <!--implemente algunos cards con imagen de anuncios en el contexto de inmobiliarias para
+  hacerla interesante ante el usuario-->
+  <ion-content class="fondo1">
+    <!--metodo para traer en un card los datos de politicas-->
+    <ion-list [virtualScroll]="anuncio" [approxItemHeight]=" '100px'">
+        <ion-item *virtualItem="let cat" no-lines class="tam" class="itemscolor">
+    <!--card con imagen y diseño de texto en el centro de esta y un telefono del anunciante-->  
+    <ion-card class="tamaño">
+          <img [src]="cat.img" />
+          <div class="card-title">{{cat.nombre_anuncio}}</div>
+          <div class="card-subtitle">{{cat.tel_anuncio}}</div>
+        </ion-card>
+        </ion-item>
+        </ion-list>
+  </ion-content>
+  
